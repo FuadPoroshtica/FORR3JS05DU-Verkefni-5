@@ -1,30 +1,45 @@
 let vorur = [
     {
-        "Nafn": "Vara 1",
+        "Vara": "Vara 1",
         "Verd": 1000
     },
     {
-        "Nafn": "Vara 2",
+        "Vara": "Vara 2",
         "Verd": 3000
     },
     {
-        "Nafn": "Vara 3",
+        "Vara": "Vara 3",
         "Verd": 5000
     },
     {
-        "Nafn": "Vara 4",
+        "Vara": "Vara 4",
         "Verd": 7000
     },
     {
-        "Nafn": "Vara 5",
+        "Vara": "Vara 5",
         "Verd": 10000
     }
 ]
 
 var slider = document.getElementById("myRange");
-var output = document.getElementById("verd");
+    var output = document.getElementById("verd");
 output.innerHTML = slider.value;
 
-slider.oninput = function() {
-    output.innerHTML = this.value;
+
+
+
+    /* sliderValue is the current value of the slider. Adjust as needed */
+    slider.oninput = function (sliderValue) {
+    var lis = document.getElementsByTagName('li');
+    for (var i = 0; i < lis.length; i++) {
+    var verd = lis[i].getElementsByClassName('name')[0].innerHTML;
+    /* Might need to convert to numbers */
+    if (verd <= sliderValue ) {
+    lis[i].style.display = 'list-item';
 }
+    {
+
+    else lis[i].style.display = 'none';
+}
+}
+};
